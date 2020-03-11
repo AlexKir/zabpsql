@@ -1,0 +1,20 @@
+[Unit]
+Description=Zabpsql service
+ConditionPathExists=/etc/zabbix/zabpsql-go/zabpsql
+After=network.target
+ 
+[Service]
+Type=notify
+User=zabbix
+Group=zabbix
+LimitNOFILE=1024
+
+Restart=on-failure
+RestartSec=10
+startLimitIntervalSec=60
+
+WorkingDirectory=/etc/zabbix/zabpsql-go
+ExecStart=/etc/zabbix/zabpsql-go/zabpsql
+ 
+[Install]
+WantedBy=multi-user.target

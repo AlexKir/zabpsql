@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sql must return one row and one column with name retvalue -->
+<sql_list>
+<sql item_key="connect">
+	select 1 
+</sql>
+</sql_list>

@@ -1,0 +1,16 @@
+/var/log/zabbix/zabpsql.log {
+    compress
+    dateext
+    maxage 365
+    rotate 10
+    size=+16M
+    notifempty
+    missingok
+    create 640 zabbix zabbix
+    su zabbix zabbix
+    postrotate
+     systemctl restart zabpsql.service
+     sleep 10
+    endscript
+}
+
