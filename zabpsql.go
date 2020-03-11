@@ -133,7 +133,7 @@ func main() {
 	key, err := ioutil.ReadFile(keyfilepath)
 	if err != nil {
 		log.Error("Error read file " + keyfilepath + " : " + err.Error())
-	} else {
+	} else if len(key) > 0 {
 		key = key[:len(key)-1] // remove end of line
 		log.Debug("key : "+string(key)+", key len: ", len(key))
 	}
