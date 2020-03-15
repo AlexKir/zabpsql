@@ -233,7 +233,11 @@ func main() {
 			log.Fatal("Error accepting: ", err.Error())
 		}
 		// Проверка входящего адреса
-		// log.Debug("request from address ", conn.RemoteAddr().String())
+		host, _, err = net.SplitHostPort(conn.RemoteAddr().String())
+		if err != nil {
+			log.Error("Error on detect host: ", err.Error())
+		}
+		log.Debug("request from address ", host)
 		// func SplitHostPort(hostport string) (host, port string, err error)
 		_, found := checkZabbixSrv(cfg.Agent.ZabbixServer, host)
 		// if host != cfg.Agent.ZabbixServer {
